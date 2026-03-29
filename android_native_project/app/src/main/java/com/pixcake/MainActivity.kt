@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.pixcake.ui.screens.EditScreen
-import com.pixcake.ui.theme.PixelCakeTheme
+import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +19,31 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    EditScreen()
+                    Greeting("Pixel Cake")
                 }
             }
         }
+    }
+}
+
+@Composable
+fun PixelCakeTheme(content: @Composable () -> Unit) {
+    MaterialTheme(
+        colorScheme = MaterialTheme.colorScheme,
+        typography = MaterialTheme.typography,
+        content = content
+    )
+}
+
+@Composable
+fun Greeting(name: String) {
+    androidx.compose.material3.Text(text = "Hello $name!")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    PixelCakeTheme {
+        Greeting("Pixel Cake")
     }
 }
