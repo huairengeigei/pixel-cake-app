@@ -3,11 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'  // 添加这一行
 }
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
-
 android {
     namespace 'com.pixcake'
     compileSdk 34
