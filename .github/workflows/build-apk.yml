@@ -119,7 +119,7 @@ jobs:
         if: success()
         with:
           name: pixel-cake-debug-apk
-          path: android_native_project/app/build/outputs/apk/debug/app-debug/*.apk
+          path: android_native_project/app/build/outputs/apk/debug/*.apk
           retention-days: 30
           if-no-files-found: error
       
