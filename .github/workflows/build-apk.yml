@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch:
+  workflow_dispatch:  # 允许手动触发
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -122,17 +122,6 @@ jobs:
           path: android_native_project/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
           if-no-files-found: error
-      
-      - name: 上传构建日志
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: build-logs
-          path:
-            - android_native_project/build_output.log
-            - android_native_project/app/build/outputs/logs/
-          retention-days: 7
-          if-no-files-found: ignore
       
       - name: 显示构建信息
         if: success()
